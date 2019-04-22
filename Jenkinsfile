@@ -3,17 +3,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        build 'test1_build'
+        sleep 10
       }
     }
     stage('Deploy') {
       steps {
-        build 'test1_deploy'
-      }
-    }
-    stage('Test') {
-      steps {
-        build 'test1_test'
+        sh 'echo "TEST"'
       }
     }
   }
