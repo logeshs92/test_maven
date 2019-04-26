@@ -12,7 +12,7 @@ pipeline {
       }
     }
     stage('test1_test') {
-      stpes{
+      stpes {
         build 'test1_test'
       }
     }
