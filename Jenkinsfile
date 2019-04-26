@@ -1,19 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('test1_build') {
+    stage("build") {
       steps {
-        build job: 'test1_build'
+        build 'test1_build'
       }
     }
-    stage('test1_deploy') {
+    stage("deploy") {
       steps {
-        build job: 'test1_deploy'
+        build 'test1_deploy'
       }
     }
-    stage('test1_test') {
+    stage("test") {
       steps {
-        build job: 'test1_test'
+        build 'test1_test'
       }
     }
   }
