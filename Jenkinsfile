@@ -3,17 +3,17 @@ pipeline {
   stages {
     stage('test1_build') {
       steps {
-        build 'test1_build'
+        build job: 'test1_build'
       }
     }
     stage('test1_deploy') {
       steps {
-        build 'test1_deploy'
+        build job: 'test1_deploy'
       }
     }
     stage('test1_test') {
       steps {
-        build 'test1_test'
+        build job: 'test1_test'
       }
     }
   }
