@@ -1,14 +1,19 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('test1_build') {
       steps {
-        sleep 10
+        build 'test1_build'
       }
     }
-    stage('Deploy') {
+    stage('test1_deploy') {
       steps {
-        sh 'echo "TEST"'
+        build 'test1_deploy'
+      }
+    }
+    stage('test1_test') {
+      stpes{
+        build 'test1_test'
       }
     }
   }
