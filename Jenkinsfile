@@ -10,12 +10,12 @@ pipeline {
 	parallel  {
 	stage(“deploy1”) {
  	 input{
-	  message “press ok to continue”
-	  submitter “admin”
-	  parameters {
-		  string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
-    }
-	 }
+		message "Press Ok to continue"
+		submitter "user1,user2"
+		parameters {
+			string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
+		}
+	}
       steps {
         build 'test1-deploy'
 	echo “User: ${username} said ok”
