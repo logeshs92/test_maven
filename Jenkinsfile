@@ -11,7 +11,7 @@ pipeline {
 	stage(“deploy1”) {
  	 input{
 		message "Press Ok to continue"
-		submitter "user1,user2"
+		submitter "admin"
 		parameters {
 			string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
 		}
