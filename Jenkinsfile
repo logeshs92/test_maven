@@ -7,13 +7,13 @@ pipeline {
       }
     }
     stage("deploy") {
-Parallel  {
+parallel  {
 stage(“deploy1”) {
   input {
 	  message “press ok to continue”
 	  submitter “admin”
 	  parameters {
-			  string{name: ’username’, defaultValue: ‘’user, description: ‘Username of the user pressing ok’
+		  string{name:’username’, defaultValue: ‘user', description: ‘Username of the user pressing ok’}
     }
       steps {
         build 'test1-deploy'
