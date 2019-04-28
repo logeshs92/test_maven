@@ -13,7 +13,7 @@ stage(“deploy1”) {
 	  message “press ok to continue”
 	  submitter “admin”
 	  parameters {
-		  string(name:’username’, defaultValue: ‘user', description: ‘Username of the user pressing ok’)
+		  string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
     }
       steps {
         build 'test1-deploy'
