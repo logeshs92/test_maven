@@ -18,7 +18,7 @@ pipeline {
 	}
       steps {
         build 'test1-deploy'
-	echo “User: ${username} said ok”
+	echo "User: ${username} said Ok."
       }
 }
 stage(“deploy2”) {
