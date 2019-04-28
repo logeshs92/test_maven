@@ -9,7 +9,7 @@ pipeline {
     stage("deploy") {
 	parallel  {
 	stage(“deploy1”) {
- 	 input {
+ 	 input{
 	  message “press ok to continue”
 	  submitter “admin”
 	  parameters {
