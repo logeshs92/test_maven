@@ -11,6 +11,7 @@ pipeline {
             }
         }
 	stage("foo") {
+		steps {
 		sh label: '', script: '''test = ${env.NPM_INSTALL}
 if [ "$test" -eq "yes" ];
 then 
@@ -18,6 +19,7 @@ echo "yes"
 else
 echo "no"
 fi'''
+}
 }
     }
 }
