@@ -8,8 +8,10 @@ pipeline {
                             parameters: [choice(name: 'NPM_INSTALL', choices: 'no\nyes', description: 'What is the release scope?')]
                 }
                 echo "${env.NPM_INSTALL}"
+		steps {
 		test = "${env.NPM_INSTALL}"
 		echo $test
+		}
             }
         }
     }
