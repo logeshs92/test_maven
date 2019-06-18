@@ -3,7 +3,9 @@ pipeline {
   stages {
 stage('Choose environment') {
   userInput = ""
+  steps {
   userInput = input(id: 'userInput', message: 'Choose an environment', parameters: [[$class: 'ChoiceParameterDefinition', choices: "yes\no", name: 'Env']])
+}
 }
   stage('test') {
 	steps {
