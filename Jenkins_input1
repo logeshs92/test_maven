@@ -1,15 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage ('build') {
-            input{
-                message "Press Ok to continue"
-                parameters: [choice(name: 'npm', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
-          }
+        stage("foo") {
             steps {
-               echo "User: ${npm} said Ok."
-              
-         }
+                script {
+                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
+                            parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
+                }
+                echo "${env.RELEASE_SCOPE}"
+            }
         }
     }
 }
