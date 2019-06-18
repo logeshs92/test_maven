@@ -1,15 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('test') {
-	steps {
-		userInput = input(id: 'userInput',    
+  stage('Choose environment') {
+  		userInput = input(id: 'userInput',    
                     message: 'Choose an environment',    
                     parameters: [
                       [$class: 'ChoiceParameterDefinition', choices: "yes\no", name: 'Env']
                            ]  
   )
-
+  }
+  stage('test') {
+	steps {
 		sh label: '', script: '''
 		if [ userInput.Env -eq yes ];
 		then 
