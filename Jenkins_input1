@@ -4,7 +4,7 @@ pipeline {
         stage("foo") {
             steps {
                 script {
-                    env.NPM_INSTALL = input message: 'User input required', ok: 'Release!',
+                    env.NPM_INSTALL = input message: 'User input required', ok: 'ok!',
                             parameters: [choice(name: 'NPM_INSTALL', choices: 'no\nyes', description: 'What is the release scope?')]
                 }
                 echo "${env.NPM_INSTALL}"
