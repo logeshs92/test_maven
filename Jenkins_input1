@@ -7,7 +7,7 @@ pipeline {
         	script {
           	userInput = input message: 'User input required',
               	parameters: [choice(name: 'npm', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
-		env.npm = userInput.nom
+		env.npm = userInput.npm
         	}
       	    }
     	}
