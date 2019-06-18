@@ -4,10 +4,17 @@ pipeline {
         stage("foo") {
             steps {
                 script {
-                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
-                            parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
+                    env.NPM_INSTALL = input message: 'User input required', ok: 'Release!',
+                            parameters: [choice(name: 'NPM_INSTALL', choices: 'no\nyes', description: 'What is the release scope?')]
                 }
-                echo "${env.RELEASE_SCOPE}"
+                echo "${env.NPM_INSTALL}"
+                sh label: '', script: '''
+		        if [ env.NPM_INSTALL -eq yes ];
+		        then 
+		        echo "yes"
+		        else
+		        echo "no"
+		        fi'''
             }
         }
     }
