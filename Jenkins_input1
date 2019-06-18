@@ -3,7 +3,7 @@ pipeline {
   stages {
   stage('Choose environment') {
   	steps {
-  		userInput = input(id: 'userInput', message: 'Choose an environment', parameters: [[$class: 'ChoiceParameterDefinition', choices: "yes\no", name: 'Env']])
+  		userInput = input(id: 'userInput', message: 'Choose an environment', parameters: [[$class: 'ChoiceParameterDefinition', choices: ['yes','no'], name: 'Env']])
   	}
   }
   stage('test') {
