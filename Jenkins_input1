@@ -12,7 +12,7 @@ pipeline {
         }
 	stage("too") {
 		steps {
-		sh label: '', script: '''echo "${env.NPM_INSTALL}"'''
+		sh label: '', script: '''echo "${NPM_INSTALL}"'''
 }
 }
     }
