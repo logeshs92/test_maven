@@ -13,7 +13,7 @@ pipeline {
   stage('test') {
 	steps {
 		sh label: '', script: '''
-		echo userInput.env
+		echo userInput.Env
 		if [ userInput.Env -eq yes ];
 		then 
 		echo "yes"
