@@ -1,11 +1,10 @@
 pipeline {
   agent any
   stages {
-  stage('Choose environment') {
-  	steps {
-  		userInput = input(id: 'userInput', message: 'Choose an environment', parameters: [[name: 'NPM_INSTALL', choices: ['yes','no'].join('\n'), description: 'Please select the Environment']])
-  	}
-  }
+userInput = ""
+stage('Choose environment') {
+  userInput = input(id: 'userInput', message: 'Choose an environment', parameters: [[$class: 'ChoiceParameterDefinition', choices: "yes\no", name: 'Env']])
+}
   stage('test') {
 	steps {
 		sh label: '', script: '''
