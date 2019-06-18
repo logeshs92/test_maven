@@ -9,7 +9,7 @@ pipeline {
                 }
                 echo "${env.NPM_INSTALL}"
                 sh label: '', script: '''
-		        if [ env.NPM_INSTALL -eq yes ];
+		        if [ "${env.NPM_INSTALL}" -eq "yes" ];
 		        then 
 		        echo "yes"
 		        else
