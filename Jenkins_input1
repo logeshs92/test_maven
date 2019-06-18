@@ -4,8 +4,7 @@ pipeline {
         stage ('build') {
             input{
                 message "Press Ok to continue"
-                parameters: [choice(name: 'npm', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]               
-            }
+                parameters: [choice(name: 'npm', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
           }
             steps {
                echo "User: ${npm} said Ok."
