@@ -14,7 +14,7 @@ pipeline {
 	steps {
 		sh label: '', script: '''
 		echo ${env.userInput}
-		if [ ${env.userInput} -eq yes ];
+		if [ env.userInput -eq yes ];
 		then 
 		echo "yes"
 		else
