@@ -1,23 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage("Gather Deployment Parameters") {
-            steps {
-                    script {
-                        // Show the select input modal
-                       def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
-                                        parameters: [
-                                        choice(name: 'ENVIRONMENT', choices: ['dev','qa'].join('\n'), description: 'Please select the Environment')]
-                        env.ENVIRONMENT = INPUT_PARAMS.ENVIRONMENT
-                    }
-                }
+        stage ('build') {
+            input{
+                message "Press Ok to continue"
+                parameters: [choice(name: 'npm', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]               
             }
-        stage("Use Deployment Parameters") {
-         steps {
-                script {
-                    echo "All parameters have been set as Environment Variables"
-                    echo "Selected Environment: ${env.ENVIRONMENT}"
-                }
+          }
+            steps {
+               echo "User: ${npm} said Ok."
+              
          }
         }
     }
