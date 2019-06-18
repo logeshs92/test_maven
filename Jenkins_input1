@@ -13,7 +13,7 @@ pipeline {
 	stage("too") {
 		steps {
 		sh label: '', script: '''test=${NPM_INSTALL}
-		 if [ $test == yes ];
+		 if [ "$test" == "yes" ];
 		        then 
 		        echo "yes"
 		        else
