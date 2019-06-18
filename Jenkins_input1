@@ -3,16 +3,15 @@ pipeline {
   stages {
     stage('test') {
 	steps {
-		script {
-                        // Show the select input modal
-                       def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
-                                        parameters: [
-                                        choice(name: 'NPM_INSTALL', choices: ['yes','no'].join('\n'), description: 'Please select the Environment')]
-                        env.NPM_INSTALL = INPUT_PARAMS.NPM_INSTALL
-                    }
+		userInput = input(id: 'userInput',    
+                    message: 'Choose an environment',    
+                    parameters: [
+                      [$class: 'ChoiceParameterDefinition', choices: "yes\no", name: 'Env']
+                           ]  
+  )
 
 		sh label: '', script: '''
-		if [ env.NPM_INSTALL -eq yes ];
+		if [ userInput.Env -eq yes ];
 		then 
 		echo "yes"
 		else
