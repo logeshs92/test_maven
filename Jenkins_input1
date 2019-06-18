@@ -12,7 +12,13 @@ pipeline {
         }
 	stage("too") {
 		steps {
-		sh label: '', script: '''echo "${NPM_INSTALL}"'''
+		sh label: '', script: '''test=${NPM_INSTALL}
+		 if [ "$test" -eq "yes" ];
+		        then 
+		        echo "yes"
+		        else
+		        echo "no"
+		        fi'''
 }
 }
     }
