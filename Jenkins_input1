@@ -7,7 +7,7 @@ pipeline {
                         // Show the select input modal
                        def INPUT_PARAMS = input message: 'Please Provide Parameters', ok: 'Next',
                                         parameters: [
-                                        choice(name: 'NPM_INSTALL', choices: ['yes','no'].join('\n'), description: 'Please select the Environment'),
+                                        choice(name: 'NPM_INSTALL', choices: ['yes','no'].join('\n'), description: 'Please select the Environment')]
                         env.NPM_INSTALL = INPUT_PARAMS.NPM_INSTALL
                     }
 
