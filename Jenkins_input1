@@ -8,13 +8,8 @@ pipeline {
                             parameters: [choice(name: 'NPM_INSTALL', choices: 'no\nyes', description: 'What is the release scope?')]
                 }
                 echo "${env.NPM_INSTALL}"
-                sh label: '', script: '''
-		        if [ "${env.NPM_INSTALL}" -eq "yes" ];
-		        then 
-		        echo "yes"
-		        else
-		        echo "no"
-		        fi'''
+		test = ${env.NPM_INSTALL}
+		echo $test
             }
         }
     }
